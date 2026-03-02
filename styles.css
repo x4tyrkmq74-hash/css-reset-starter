@@ -1,3 +1,54 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
 
 
 /* CSS VARIABLES */
@@ -38,6 +89,25 @@ header, footer{
     background-color: var(--mint);
 }
 
+/* ===== Restore type sizing & spacing removed by reset ===== */
+h1{
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0 1rem 0;
+}
+
+h2{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 2rem 0 1rem 0;
+}
+
+h3{
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 1.5rem 0 0.75rem 0;
+}
+
 /* Navigation Styles */
 nav{
     width: 50%;
@@ -45,7 +115,6 @@ nav{
 }
 
 nav ul{
-    list-style-type: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
@@ -95,8 +164,24 @@ a:hover{
 
 /* Link Focus Styles */
 a:focus{
-    outline-color: var(--coral);
+    outline: 2px solid var(--coral);
     outline-offset: 2px;
+}
+
+/* ===== Image / Figure spacing (reset removed defaults) ===== */
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+figure{
+    margin: 1rem 0;
+}
+
+figcaption{
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
 }
 
 /* Form Styles */
@@ -111,6 +196,11 @@ input, label, textarea{
     display: block;
 }
 
+/* Labels spacing */
+label{
+    margin-top: 0.75rem;
+}
+
 /* For the asterisks in the form section */
 .required{
     color: var(--coral);
@@ -121,6 +211,11 @@ input, textarea{
     margin: 0.25rem 0 1rem 0;
     width: calc(100% - 8px);
     border: 2px solid var(--red);
+    padding: 0.25rem;
+    background-color: var(--white);
+    font-family: var(--fonts);
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
 /* Input and Textarea Focus Styles */
@@ -134,13 +229,14 @@ input{
     height: 2rem;
 }
 
-/* Fieldset Styles */
+/* Fieldset Styles (reset removed border; put it back) */
 fieldset{
     display: grid;
     grid-template-columns: 0.25fr 6fr 0.25fr 6fr;
     gap: 1rem;
     margin: 1rem 0;
-    border-color: var(--red);
+    border: 2px solid var(--red);
+    padding: 1rem;
 }
 
 /* Code for Custom Radios - Compare to Your zyBook, I added additional code to make these match my form styles */
@@ -157,6 +253,9 @@ input[type=radio] {
     border: none;
     font-size: 0;
     border-radius: 0;
+    height: auto;
+    width: auto;
+    background: none;
 }
 
 input[type=radio] + label::before {
@@ -204,6 +303,7 @@ textarea{
     border: none;
     font-size: 1.1rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 /* Submit Button Hover Styles */
@@ -221,6 +321,7 @@ code{
 /* for the pre block */
 pre{
     font-family: var(--code-fonts);
+    margin-top: 1rem;
 }
 
 pre code{
